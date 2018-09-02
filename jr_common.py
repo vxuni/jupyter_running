@@ -34,14 +34,12 @@ def make_folium_map_with_run(runt: pd.DataFrame) -> folium.Map:
 
     # https://pandas.pydata.org/pandas-docs/stable/generated/pandas.Series.idxmax.html
     # True is > False, so idxmax() will return idx of first occurrence of True
-    prev_km_idx = None
     for km in range(1, int(runt.dist.max() / 1000) + 1):
         idx = (runt.dist > km * 1000).idxmax()
 
-        if prev_km_idx:
-            time_per_km = runt.time[idx] - runt.time[prev_km_idx]
-        else:
-            time_per_km = None
+        idx_1km_back = (runt.dist > (runt.dist[idx] - 1000)).idxmax()
+
+        time_per_km = runt.time[idx] - runt.time[idx_1km_back]
 
         info_msg = (
             f"Stats<br>"
