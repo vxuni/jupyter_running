@@ -1,0 +1,21 @@
+name: vxuni
+channels:
+  # need this for basemap 1.1
+  # see https://stackoverflow.com/questions/49469409/basemap-attribute-python
+  - conda-forge
+dependencies:
+  - basemap>=1.1
+  # if you want to use Basemap(resolution='f', ...) or anything that's not l(ow) or c(rude)
+  # >100MB package, so we leave out unless really needed.
+  # - basemap-data-hires
+  - folium
+  - python=3.6
+  - jupyterlab
+  - matplotlib
+  - pandas
+  # pillow needed for drawing maps with basemap
+  - pillow
+  - seaborn
+  - pip:
+      - activityio
+
