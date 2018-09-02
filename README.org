@@ -1,0 +1,2 @@
+This code is part of the vxuni mini-lecture [[https://vxuni.com/][Jupyter Running - an
+introduction to JupyterLab and Notebooks]].
